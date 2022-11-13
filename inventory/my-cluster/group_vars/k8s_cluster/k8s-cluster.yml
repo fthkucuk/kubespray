@@ -138,7 +138,6 @@ kube_proxy_nodeport_addresses: >-
   {%- else -%}
   []
   {%- endif -%}
-
 # If non-empty, will use this string as identification instead of the actual hostname
 # kube_override_hostname: >-
 #   {%- if cloud_provider is defined and cloud_provider in [ 'aws' ] -%}
@@ -229,7 +228,7 @@ kubeadm_certificate_key: "{{ lookup('password', credentials_dir + '/kubeadm_cert
 k8s_image_pull_policy: IfNotPresent
 
 # audit log for kubernetes
-kubernetes_audit: true
+kubernetes_audit: false
 
 # define kubelet config dir for dynamic kubelet
 # kubelet_config_dir:
@@ -245,7 +244,7 @@ podsecuritypolicy_enabled: false
 # podsecuritypolicy_privileged_spec: {}
 
 # Make a copy of kubeconfig on the host that runs Ansible in {{ inventory_dir }}/artifacts
-kubeconfig_localhost: true
+ kubeconfig_localhost: true
 # Use ansible_host as external api ip when copying over kubeconfig.
 # kubeconfig_localhost_ansible_host: false
 # Download kubectl onto the host that runs Ansible in {{ bin_dir }}
